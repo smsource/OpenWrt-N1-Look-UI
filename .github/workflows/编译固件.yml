@@ -183,29 +183,30 @@ jobs:
         tag: openwrt_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
         artifacts: /workdir/upload/*
         allowUpdates: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+        到ken: ${{ secrets.GI_TOKEN }}
         body: |
           ### **适用于Amlogic平台的N1盒子OpenWrt固件--全插件**
-          * **固件信息：**
-          默认IP: `10.10.10.1`
-          默认用户名: `root`
-          默认密码: `password`
+           * **固件信息：**
+          - 🌐 默认地址: `192.168.31.31`
+          - 🔑 默认密码: `password`
+          - 💻 平台架构: `armvirt_64`
+          - ⚽ 固件源码: ${{ env.REPO_URL }}
+          - 💝 源码分支: ${{ env.REPO_BRANCH }}
+          - 📦 打包日期：${{ env.PACKAGED_OUTPUTDATE }}
           * **使用方法：**
-          1. 安装固件：写入U盘直接使用；U盘启动后可输入命令 `openwrt-install-amlogic` 按照英文提示写入到emmc
+          1. 安装固件：写入U盘直接使用；U盘启动后可输入命令 `openwrt-install-amlogic` 按照英文提示写入到`EMMC`
           2. 更新固件：将固件放在 `/mnt/mmcblk2p4/` 目录下，输入命令 `openwrt-update-amlogic` 可直接更新
           3. 登录Luci界面后，可直接使用`晶晨宝盒`插件进行写入emmc或者更新操作（使用前先按需求填写好插件设置），免去手动输入命令！
           * **更新说明：**
           目前已集成大部分常用插件！
-          * **N1云编译OP固件互助交流群：**
-          https://t.me/OpenWrt_n1
           * **提示：**
           `openwrt_s905d_n1_XX_XX` 文件名才是固件！
 
     - name: 清理Actions空间
       uses: Mattraks/delete-workflow-runs@main
       with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
+          到ken: ${{ secrets.GITHUB_TOKEN }}
+          reposi到ry: ${{ github.reposi到ry }}
           keep_minimum_runs: 0
           retain_days: 7
           #retain_days: ${{ github.event.inputs.action_days }}
@@ -213,9 +214,9 @@ jobs:
     - name: 删除多余releases
       uses: dev-drprasad/delete-older-releases@master
       with:
-        repo: ${{ github.repository }}
+        repo: ${{ github.reposi到ry }}
         keep_latest: 6
         #keep_latest: ${{ github.event.inputs.rele }}
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GI_TOKEN }}
