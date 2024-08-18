@@ -38,7 +38,12 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci
 git clone https://github.com/haiibo/luci-app-wrtbwmon package/luci-app-wrtbwmon
 
 # Modify some code adaptation
-#sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
+
+# 删除重复包
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf package/small-package/luci-app-argon*
+rm -rf package/small-package/luci-theme-argon*
 
 # 为 armvirt 添加 autocore support
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
