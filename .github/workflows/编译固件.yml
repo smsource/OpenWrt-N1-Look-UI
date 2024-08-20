@@ -172,10 +172,9 @@ jobs:
         WHOAMI: deng
         OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: s905d
-       # KERNEL_AUTO_LATEST: false
-       # KERNEL_REPO_URL: https://github.com/quanjindeng/Actions_OpenWrt-Amlogic/tree/main/kernel
+        KERNEL_AUTO_LATEST: false
+        # KERNEL_REPO_URL: https://github.com/quanjindeng/Actions_OpenWrt-Amlogic/tree/main/kernel
         KERNEL_VERSION_NAME: 5.15.16_6.1.99
-        KERNEL_AUTO_LATEST: true
         
     - name: 整理文件
       run: mv /opt/openwrt_packit/output/* /workdir/upload/
