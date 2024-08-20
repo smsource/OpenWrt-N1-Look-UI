@@ -167,15 +167,15 @@ jobs:
         sudo du -h --max-depth=1 /workdir |sort -nr | head -10
 
     - name: 打包内核
-      uses: unifreq/openwrt_packit@master
+      uses: ophub/flippy-openwrt-actions@main
       env:
         WHOAMI: deng
         OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: s905d
-        KERNEL_AUTO_LATEST: true
        # KERNEL_AUTO_LATEST: false
        # KERNEL_REPO_URL: https://github.com/quanjindeng/Actions_OpenWrt-Amlogic/tree/main/kernel
         KERNEL_VERSION_NAME: 5.15.16_6.1.106
+        KERNEL_AUTO_LATEST: true
         
     - name: 整理文件
       run: mv /opt/openwrt_packit/output/* /workdir/upload/
