@@ -31,6 +31,9 @@ cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-stat
 # 取消默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
+# 取消主题默认设置
+find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
+
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
@@ -65,7 +68,8 @@ sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
 # 添加插件aliddns
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-git clone https://github.com/sbwml/luci-app-alist package/alist
+svn export https://github.com/sbwml/luci-app-alist/luci-app-alist package/luci-app-alist
+svn export https://github.com/sbwml/luci-app-alist/alist package/alist
 
 ## DDNSGO 
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
