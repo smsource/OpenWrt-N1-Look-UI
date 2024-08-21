@@ -20,12 +20,10 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-defaul
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
-# 删除lede自带argon主题
-#rm -rf ./feeds/luci/themes/luci-theme-argon
-
-# 添加 Argon 主题
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+# > 清除旧版argon主题并拉取最新版
+rm -rf feeds/luci/themes/luci-theme-argon
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
