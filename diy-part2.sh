@@ -20,6 +20,12 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-defaul
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
+# Argon 底包
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf package/small-package/luci-app-argon*
+rm -rf package/small-package/luci-theme-argon*
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
@@ -61,9 +67,9 @@ sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
 # mv -f package-temp/luci-app-amlogic/luci-app-amlogic package/lean/
 # rm -rf package-temp
 
-# 添加插件aliddns
+# 添加插件aliddns及golang版本修复
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 svn export https://github.com/sbwml/luci-app-alist/luci-app-alist package/luci-app-alist
 svn export https://github.com/sbwml/luci-app-alist/alist package/alist
 
