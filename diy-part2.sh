@@ -46,15 +46,11 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/small-package/luci-app-argon*
 rm -rf package/small-package/luci-theme-argon*
 
-
 ## DDNSGO 
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
 mv -n package/new/ddnsgo/*ddns-go package/new/
 rm -rf package/new/ddnsgo
 
-# golang版本修复
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # 修改插件名字
 sed -i 's/"Argon 主题设置"/"主题设置"/g' `grep "Argon 主题设置" -rl ./`
