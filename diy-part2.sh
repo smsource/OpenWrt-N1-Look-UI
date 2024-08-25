@@ -13,12 +13,10 @@
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # 科学上网插件
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-
-sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings    # 设置密码为空
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall   
 
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify some code adaptation
 #sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
@@ -44,13 +42,10 @@ sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zz
 git clone https://github.com/kenzok8/small-package package/small-package
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-
-# 删除重复包
-
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf package/small-package/luci-app-wrtbwmon
 rm -rf package/small-package/luci-app-argon*
 rm -rf package/small-package/luci-theme-argon*
+
 
 ## DDNSGO 
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
