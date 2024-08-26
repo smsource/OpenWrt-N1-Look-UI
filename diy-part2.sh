@@ -22,10 +22,8 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argonne/' feeds/luci/collections/luci/
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argonne/htdocs/luci-static/argonne/img/bg1.jpg
 
-
 # 取消默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-
 
 # 为 armvirt 架构添加 autocore 支持
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
@@ -46,7 +44,7 @@ sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba
 sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zzz-default-settings
 
 # 网页菜单
-svn co https://github.com/doushang/luci-app-shortcutmenu/trunk/luci-app-shortcutmenu
+git clone https://github.com/doushang/luci-app-shortcutmenu.git package/luci-app-shortcutmenu
 
 ## DDNSGO 
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
