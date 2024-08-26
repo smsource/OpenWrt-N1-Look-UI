@@ -9,10 +9,12 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
+
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # 设置argon为默认主题
+rm -rf ./package/lean/luci-theme-argon
 git clone https://github.com/kenzok78/luci-theme-argonne package/argonne/luci-theme-argonne
 git clone https://github.com/kenzok78/luci-app-argonne-config package/argonne/luci-app-argonne-config
 sed -i 's/luci-theme-bootstrap/luci-theme-argonne/' feeds/luci/collections/luci/Makefile
@@ -56,3 +58,5 @@ sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
 sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
 sed -i 's/"FTP 服务器"/"FTP"/g' `grep "FTP 服务器" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
+sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
+sed -i 's/"网页快捷菜单"/"网页管理"/g' `grep "网页快捷菜单" -rl ./`
