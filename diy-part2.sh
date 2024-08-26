@@ -13,7 +13,9 @@
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # 设置argon为默认主题
-# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+git clone https://github.com/kenzok78/luci-theme-argonne package/argonne/luci-theme-argonne
+git clone https://github.com/kenzok78/luci-app-argonne-config package/argonne/luci-app-argonne-config
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/' feeds/luci/collections/luci/Makefile
 
 # 取消默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
