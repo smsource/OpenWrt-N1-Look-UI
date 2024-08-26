@@ -12,9 +12,6 @@
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
-# 科学上网插件
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall   
-
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
 # sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
