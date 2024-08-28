@@ -13,13 +13,13 @@
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
-# 设置argon为默认主题
+# 设置argone为默认主题
 git clone --depth=1 https://github.com/kenzok78/luci-app-argone-config.git  package/luci-app-argone-config
 git clone --depth=1 https://github.com/kenzok78/luci-theme-argone.git  package/luci-theme-argone
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/' feeds/luci/collections/luci/Makefile
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/customize/images/bg1.jpg openwrt/feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
 
 # 取消默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
@@ -57,7 +57,7 @@ rm -rf package/new/ddnsgo
 
 
 # 修改插件名字
-sed -i 's/"Argon 主题设置"/"主题设置"/g' `grep "Argon 主题设置" -rl ./`
+sed -i 's/"Argone 主题设置"/"主题设置"/g' `grep "Argone 主题设置" -rl ./`
 sed -i 's/"带宽监控"/"带宽"/g' `grep "带宽监控" -rl ./`
 sed -i 's/"TTYD 终端"/"终端"/g' `grep "TTYD 终端" -rl ./`
 sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
