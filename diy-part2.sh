@@ -14,8 +14,8 @@
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # 设置argon为默认主题
-git clone https://github.com/kenzok78/luci-theme-argonne.git package/luci-theme-argonne
-git clone https://github.com/kenzok78/luci-app-argonne-config package/luci-app-argonne-config
+git clone --depth=1 https://github.com/kenzok78/luci-app-argonne-config.git  package/luci-app-argonne-config
+git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne.git  package/luci-theme-argonne
 sed -i 's/luci-theme-bootstrap/luci-theme-argonne/' feeds/luci/collections/luci/Makefile
 
 # 更改 Argon 主题背景
@@ -30,7 +30,7 @@ sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/auto
 # 设置OpenWrt 发行版的修订版本
 sed -i "s/OpenWrt /Deng Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
-# Modify default IP（FROM 192.168.1.1 CHANGE TO 10.10.10.1）
+# 设置IP为192.168.31.31
 sed -i 's/192.168.1.1/192.168.31.31/g' package/base-files/files/bin/config_generate
 
 # 主机名" 修改为 "OpenWrt-N1"
