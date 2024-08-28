@@ -14,9 +14,9 @@
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # 设置argon为默认主题
-git clone --depth=1 https://github.com/kenzok78/luci-app-argonne-config.git  package/luci-app-argonne-config
-git clone --depth=1 https://github.com/kenzok78/luci-theme-argonne.git  package/luci-theme-argonne
-sed -i 's/luci-theme-bootstrap/luci-theme-argonne/' feeds/luci/collections/luci/Makefile
+git clone --depth=1 https://github.com/kenzok78/luci-app-argone-config.git  package/luci-app-argonne-config
+git clone --depth=1 https://github.com/kenzok78/luci-theme-argone.git  package/luci-theme-argonne
+sed -i 's/luci-theme-bootstrap/luci-theme-argone/' feeds/luci/collections/luci/Makefile
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
