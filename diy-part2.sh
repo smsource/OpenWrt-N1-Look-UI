@@ -19,7 +19,7 @@ git clone --depth=1 https://github.com/kenzok78/luci-theme-argone.git  package/l
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/' feeds/luci/collections/luci/Makefile
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg openwrt/package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
 
 # 取消默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
@@ -46,7 +46,8 @@ sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zz
 git clone --depth=1 https://github.com/doushang/luci-app-shortcutmenu.git package/luci-app-shortcutmenu
 
 # 在线用户
-git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner.git package/luci-app-onliner
+git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
+
 
 ## DDNSGO 
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
