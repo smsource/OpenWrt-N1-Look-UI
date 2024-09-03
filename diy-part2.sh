@@ -56,6 +56,7 @@ rm -rf package/new/ddnsgo
 
 
 # 修改插件名字
+sed -i 's/"管理权"/"管理"/g' `grep "管理权" -rl ./`
 sed -i 's/"Argone 主题设置"/"主题设置"/g' `grep "Argone 主题设置" -rl ./`
 sed -i 's/"带宽监控"/"带宽"/g' `grep "带宽监控" -rl ./`
 sed -i 's/"TTYD 终端"/"终端"/g' `grep "TTYD 终端" -rl ./`
@@ -66,3 +67,4 @@ sed -i 's/"FTP 服务器"/"FTP"/g' `grep "FTP 服务器" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 sed -i 's/"网页快捷菜单"/"网页管理"/g' `grep "网页快捷菜单" -rl ./`
+sed -i 's/"重启"/"重启系统"/g' `grep "重启" -rl ./`
