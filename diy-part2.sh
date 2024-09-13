@@ -42,12 +42,8 @@ sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba
 # 修复部分插件自启动脚本丢失可执行权限问题
 sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zzz-default-settings
 
-# 网页菜单
-git clone --depth=1 https://github.com/doushang/luci-app-shortcutmenu.git package/luci-app-shortcutmenu
-
 # 在线用户
 git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
-
 
 ## DDNSGO 
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
@@ -66,5 +62,4 @@ sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
 sed -i 's/"FTP 服务器"/"FTP"/g' `grep "FTP 服务器" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
-sed -i 's/"网页快捷菜单"/"网页管理"/g' `grep "网页快捷菜单" -rl ./`
 sed -i 's/"重启"/"重启系统"/g' `grep "重启" -rl ./`
