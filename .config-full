@@ -312,6 +312,24 @@ CONFIG_PACKAGE_kmod-tcp-bbr=y
 CONFIG_PACKAGE_vsftpd-alt=y
 CONFIG_VSFTPD_USE_UCI_SCRIPTS=y
 
+#
+# SSH
+#
+CONFIG_PACKAGE_autossh=y
+CONFIG_PACKAGE_openssh-client=y
+CONFIG_PACKAGE_openssh-client-utils=y
+CONFIG_PACKAGE_openssh-keygen=y
+CONFIG_PACKAGE_openssh-moduli=y
+CONFIG_PACKAGE_openssh-server=y
+CONFIG_OPENSSH_LIBFIDO2=y
+# CONFIG_PACKAGE_openssh-server-pam is not set
+CONFIG_PACKAGE_openssh-sftp-avahi-service=y
+CONFIG_PACKAGE_openssh-sftp-client=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+CONFIG_PACKAGE_sshtunnel=y
+# CONFIG_PACKAGE_tmate is not set
+# end of SSH
+
 # H68K AX Mode Support
 CONFIG_DRIVER_11AX_SUPPORT=y
 CONFIG_PACKAGE_kmod-mt7921-common=y
