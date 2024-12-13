@@ -32,9 +32,6 @@ sed -i "s/OpenWrt /Deng Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package
 
 # 设置IP为192.168.31.31
 sed -i 's/192.168.1.1/192.168.31.31/g' package/base-files/files/bin/config_generate
-sed -i 's/192.168.1.1/192.168.31.31/g' package/base-files/luci2/bin/config_generate
-sed -i 's/192.168.1.1/192.168.31.31/g' package/base-files/Makefile
-sed -i 's/192.168.1.1/192.168.31.31/g' package/base-files/image-config.in
 
 # 主机名" 修改为 "OpenWrt-N1"
 sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
