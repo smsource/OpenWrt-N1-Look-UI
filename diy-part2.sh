@@ -47,6 +47,8 @@ git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddn
 mv -n package/new/ddnsgo/*ddns-go package/new/
 rm -rf package/new/ddnsgo
 
+# 修改默认 IP ( 192.168.1.1 改为 192.168.1.99 )
+sed -i 's/192.168.1.1/192.168.1.99/g' openwrt/package/base-files/luci2/bin/config_generate
 
 # 修改插件名字
 sed -i 's/"管理权"/"管理"/g' `grep "管理权" -rl ./`
