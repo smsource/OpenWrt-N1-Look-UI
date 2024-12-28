@@ -69,5 +69,5 @@ sed -i 's/"重启"/"重启系统"/g' `grep "重启" -rl ./`
 
 
 ##修改ttyd到系统菜单
-sed -i 's|entry({"admin", "services", "ttyd"|entry({"admin", "system", "ttyd"|g' feeds/luci/applications/luci-app-ttyd/luasrc/controller/ttyd.lua
+sed -i 's/"services"/"system"/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 
