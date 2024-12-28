@@ -13,18 +13,16 @@
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
-# 设置argon为默认主题
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-
 # 更改 Argon 主题背景
-# cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
 
-# 取消默认主题
-# sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-
-# 设置默认主题
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+########### 更改默认主题（可选）###########
+# 删除自定义源默认的 argon 主题
+rm -rf package/lean/luci-theme-argon
+# 拉取 argon 原作者的源码
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+# 替换默认主题为 luci-theme-argon
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
 
 # 为 armvirt 架构添加 autocore 支持
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
@@ -42,17 +40,12 @@ sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba
 sed -i '/exit 0/i\chmod +x /etc/init.d/*' package/lean/default-settings/files/zzz-default-settings
 
 # 在线用户
-git clone --depth=1 https://github.com/haiibo/luci-app-onliner.git package/luci-app-onliner
+git clone --depth=1 https://github.com/danchexiaoyang/luci-app-onliner.git package/luci-app-onliner
 
 ## DDNSGO 
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
 mv -n package/new/ddnsgo/*ddns-go package/new/
 rm -rf package/new/ddnsgo
-
-# 删除重复软件包
-rm -rf package/small-package/luci-app-argon*
-rm -rf package/small-package/luci-theme-argon*
-rm -rf feeds/luci/themes/luci-theme-argon
 
 # 修改插件名字
 sed -i 's/"管理权"/"管理"/g' `grep "管理权" -rl ./`
