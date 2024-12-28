@@ -58,7 +58,7 @@ rm -rf feeds/luci/themes/luci-theme-argon
 sed -i 's/"管理权"/"管理"/g' `grep "管理权" -rl ./`
 sed -i 's/"Argone 主题设置"/"主题设置"/g' `grep "Argone 主题设置" -rl ./`
 sed -i 's/"AdGuard Home"/"AdGuard"/g' `grep "AdGuard Home" -rl ./`
-sed -i 's/"TTYD 终端"/"终端"/g' `grep "TTYD 终端" -rl ./`
+sed -i 's/"TTYD 终端"/"终端管理"/g' `grep "TTYD 终端" -rl ./`
 sed -i 's/"NAS"/"存储"/g' `grep "NAS" -rl ./`
 sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
 sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
@@ -66,8 +66,4 @@ sed -i 's/"FTP 服务器"/"FTP"/g' `grep "FTP 服务器" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 sed -i 's/"重启"/"重启系统"/g' `grep "重启" -rl ./`
-
-
-##修改ttyd到系统菜单
-sed -i 's/"services"/"system"/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 
