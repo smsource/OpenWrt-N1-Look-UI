@@ -4,7 +4,7 @@
 
 -项目借助 Github Actions 提取 Lean 的 Openwrt 源码仓库以实施云编译
 
--固件的默认管理地址为：192.168.31.31 ，默认用户为：root ，默认密码为：password
+-固件的默认管理地址为：192.168.1.101 ，默认用户为：root ，默认密码为：password
 
 -整合 Docker 服务，能够在 OpenWrt 内部随意部署 Docker 应用
 
