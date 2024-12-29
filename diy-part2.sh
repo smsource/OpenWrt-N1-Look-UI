@@ -19,18 +19,19 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 rm -rf package/lean/luci-theme-argon
 
 # 拉取 argon 原作者的源码
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone -b 23 https://github.com/kenzok78/luci-theme-argone
+git clone --depth 1 https://github.com/kenzok78/luci-app-argone-config
 
 # 修改主题配置
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-light/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-ssl-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-light/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-ssl-nginx/Makefile
 
-# 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argone/img/bg1.jpg
+# 更改Argone主题背景 设为默认
+cp -f $GITHUB_WORKSPACE/images/bg1.jpg openwrt/feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
 
+sed -i 's/argon/argone/g' openwrt/feeds/luci/collections/luci/Makefile
 # 为 armvirt 架构添加 autocore 支持
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
 
@@ -62,7 +63,7 @@ sed -i 's/"终端"/"终端管理"/g' `grep "终端" -rl ./`
 sed -i 's/"NAS"/"存储"/g' `grep "NAS" -rl ./`
 sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
 sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
-sed -i 's/"frp 客户端"/"Frp"/g' `grep "FTP 服务器" -rl ./`
+sed -i 's/"frp 客户端"/"Frp"/g' `grep "frp 客户端" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 sed -i 's/"重启"/"重启系统"/g' `grep "重启" -rl ./`
