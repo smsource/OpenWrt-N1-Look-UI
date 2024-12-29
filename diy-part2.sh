@@ -22,7 +22,7 @@ sed -i 's/192.168.1.1/192.168.1.101/g' package/base-files/image-config.in
 ########### 更改默认主题（可选）###########
 # 拉取 argone 源码
 git clone -b 23 https://github.com/kenzok78/luci-theme-argone
-git clone --depth 1 https://github.com/kenzok78/luci-app-argone-config
+# git clone --depth 1 https://github.com/kenzok78/luci-app-argone-config
 
 # 修改主题配置
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/Makefile
@@ -33,7 +33,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 # 更改Argone主题背景 设为默认
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg openwrt/feeds/kenzo/luci-theme-argone/htdocs/luci-static/argone/img/bg1.jpg
 
-sed -i 's/argon/argone/g' openwrt/feeds/luci/collections/luci/Makefile
+
 # 为 armvirt 架构添加 autocore 支持
 sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
 
