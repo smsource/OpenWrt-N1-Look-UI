@@ -15,10 +15,7 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 
 
 ########### 更改默认主题（可选）###########
-# 删除自定义源默认的 argon 主题
-rm -rf package/lean/luci-theme-argon
-
-# 拉取 argon 原作者的源码
+# 拉取 argone 源码
 git clone -b 23 https://github.com/kenzok78/luci-theme-argone
 git clone --depth 1 https://github.com/kenzok78/luci-app-argone-config
 
@@ -54,6 +51,11 @@ git clone --depth=1 https://github.com/danchexiaoyang/luci-app-onliner.git packa
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go package/new/ddnsgo
 mv -n package/new/ddnsgo/*ddns-go package/new/
 rm -rf package/new/ddnsgo
+
+# 其他修改
+sed -i 's#https://github.com/breakings/OpenWrt#https://github.com/quanjindeng/Actions_OpenWrt-Amlogic#g' package/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
+sed -i 's#ARMv8#openwrt_armvirt_v8#g' package/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
+sed -i 's#opt/kernel#kernel#g' package/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
 
 # 修改插件名字
 sed -i 's/"管理权"/"管理"/g' `grep "管理权" -rl ./`
