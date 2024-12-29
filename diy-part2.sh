@@ -13,6 +13,11 @@
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
+# Modify default IP
+sed -i 's/192.168.1.1/192.168.1.101/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.101/g' package/base-files/luci2/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.101/g' package/base-files/Makefile
+sed -i 's/192.168.1.1/192.168.1.101/g' package/base-files/image-config.in
 
 ########### 更改默认主题（可选）###########
 # 拉取 argone 源码
