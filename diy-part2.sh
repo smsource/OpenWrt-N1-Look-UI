@@ -20,9 +20,12 @@ sed -i 's/192.168.1.1/192.168.1.101/g' package/base-files/Makefile
 sed -i 's/192.168.1.1/192.168.1.101/g' package/base-files/image-config.in
 
 ########### 更改默认主题（可选）###########
+# 删除主题
+rm -rf feeds/luci/themes/luci-theme-argon
+
 # 拉取 argone 源码
-git clone -b 23 https://github.com/kenzok78/luci-theme-argone
-# git clone --depth 1 https://github.com/kenzok78/luci-app-argone-config
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 
 # 修改主题配置
 sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/Makefile
