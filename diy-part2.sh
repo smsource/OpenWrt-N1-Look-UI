@@ -67,8 +67,11 @@ sed -i 's,终端,终端管理,g' feeds/luci/applications/luci-app-ttyd/po/zh_Han
 sed -i 's/services/network/g' feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
 sed -i 's/services/network/g' feeds/luci/applications/luci-app-nlbwmon/htdocs/luci-static/resources/view/nlbw/config.js
 
-# 调整alist到nas菜单
+# 调整部分插件到nas菜单
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 
 # 修改插件名字
 sed -i 's/"管理权"/"管理"/g' `grep "管理权" -rl ./`
@@ -86,9 +89,4 @@ sed -i '/msgid "Reboot"/{n;s/重启/重启设备/;}' feeds/luci/modules/luci-bas
 sed -i '/msgid "Software"/{n;s/软件包/软件管理/;}' feeds/luci/modules/luci-base/po/zh_Hans/base.po
 sed -i '/msgid "Startup"/{n;s/启动项/启动管理/;}' feeds/luci/modules/luci-base/po/zh_Hans/base.po
 
-# 调整部分插件菜单
-sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
-sed -i 's/services/nas/g' /usr/lib/lua/luci/view/aria2/overview_status.htm
-sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/hd_idle.lua
-# sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/samba4.lua
 
