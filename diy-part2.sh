@@ -67,11 +67,8 @@ mv -f package-temp/luci-app-amlogic/luci-app-amlogic package/lean/
 rm -rf package-temp
 
 # NPS内网穿透
-rm -rf feeds/packages/net/nps
 git clone https://github.com/yhl452493373/npc.git package/npc
 git clone https://github.com/yhl452493373/luci-app-npc.git package/luci-app-npc
-#修正npc翻译问题
-mv package/luci-app-npc/po/zh_Hans package/luci-app-npc/po/zh-cn
 
 # 调整终端到系统菜单
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
@@ -90,7 +87,6 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/shar
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 sed -i 's/services/nas/g'  feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 
-
 # 修改插件名字
 sed -i 's/"管理权"/"管理"/g' `grep "管理权" -rl ./`
 sed -i 's/"软件包"/"软件管理"/g' `grep "软件包" -rl ./`
@@ -101,8 +97,8 @@ sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
 sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
-sed -i 's/"Nps 内网穿透"/"Nps内网穿透"/g' `grep "Nps 内网穿透" -rl ./`
-sed -i 's/"Frp 内网穿透"/"Frp内网穿透"/g' `grep "Frp 内网穿透" -rl ./`
+sed -i 's/"Npc"/"Nps内网穿透"/g' `grep "Npc" -rl ./`
+sed -i 's/"frp 内网穿透"/"Frp内网穿透"/g' `grep "frp 内网穿透" -rl ./`
 
 # 调整部分插件名字
 sed -i '/msgid "Reboot"/{n;s/重启/重启设备/;}' feeds/luci/modules/luci-base/po/zh_Hans/base.po
