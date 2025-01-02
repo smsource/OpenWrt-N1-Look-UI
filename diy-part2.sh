@@ -88,9 +88,7 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-alist/root/usr/share/
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
-sed -i 's/"services"/"nas"/g' feeds/luci/applications/luci-app-aria2/luasrc/controller/aria2.lua
-sed -i 's/services/nas/' feeds/luci/applications/luci-app-aria2/luasrc/view/aria2/overview_status.htm
-sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/luasrc/controller/hd_idle.lua
+sed -i 's/services/nas/g'  feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 
 
 # 修改插件名字
@@ -103,15 +101,15 @@ sed -i 's/"Aria2 配置"/"Aria2"/g' `grep "Aria2 配置" -rl ./`
 sed -i 's/"实时流量监测"/"流量"/g' `grep "实时流量监测" -rl ./`
 sed -i 's/"Alist 文件列表"/"Alist"/g' `grep "Alist 文件列表" -rl ./`
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
-
+sed -i 's/"Nps 内网穿透"/"Nps内网穿透"/g' `grep "Nps 内网穿透" -rl ./`
+sed -i 's/"Frp 内网穿透"/"Frp内网穿透"/g' `grep "Frp 内网穿透" -rl ./`
 
 # 调整部分插件名字
 sed -i '/msgid "Reboot"/{n;s/重启/重启设备/;}' feeds/luci/modules/luci-base/po/zh_Hans/base.po
 sed -i '/msgid "Startup"/{n;s/启动项/启动管理/;}' feeds/luci/modules/luci-base/po/zh_Hans/base.po
 sed -i 's/msgstr "备份与升级"/msgstr "备份\/升级"/g' feeds/luci/modules/luci-base/po/zh_Hans/base.po
 sed -i 's/msgstr "DHCP\/DNS"/msgstr "DHCP服务"/g' feeds/luci/modules/luci-base/po/zh_Hans/base.po
-sed -i 's/网络存储/存储/g' feeds/vi/luci-app-usb-printer/po/zh_Hans/luci-app-usb-printer.po
-sed -i 's/Frp 内网穿透/Frp内网穿透/g' feeds/luci/applications/luci-app-frpc/po/zh-cn/frp.po
-sed -i 's/Nps 内网穿透/Nps内网穿透/g' feeds/luci/applications/luci-app-nps/po/zh-cn/nps.po
+sed -i 's/msgstr "网络存储"/msgstr "存储"/g' feeds/luci/applications/luci-app-vsftpd/po/zh_Hans/vsftpd.po
+
 
 
