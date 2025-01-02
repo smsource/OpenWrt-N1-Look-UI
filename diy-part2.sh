@@ -66,6 +66,13 @@ git clone https://github.com/ophub/luci-app-amlogic.git  package-temp/luci-app-a
 mv -f package-temp/luci-app-amlogic/luci-app-amlogic package/lean/
 rm -rf package-temp
 
+# NPS内网穿透
+rm -rf feeds/packages/net/nps
+git clone https://github.com/yhl452493373/npc.git package/npc
+git clone https://github.com/yhl452493373/luci-app-npc.git package/luci-app-npc
+#修正npc翻译问题
+mv package/luci-app-npc/po/zh_Hans package/luci-app-npc/po/zh-cn
+
 # 调整终端到系统菜单
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i '3a \		"order": 10,' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
